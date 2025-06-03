@@ -1,48 +1,46 @@
-# Astro Starter Kit: Basics
+# Set-Form
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+**Set-Form** es una página web básica que permite visualizar y responder encuestas cargadas en una hoja de cálculo de Google Sheets.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Objetivo
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+El proyecto busca facilitar la creación de formularios dinámicos a partir de un documento de Google Sheets, manteniendo una estructura simple y sin necesidad de un backend complejo.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Características
 
-## 🚀 Project Structure
+- Se conecta con Google Sheets a través de las Google APIs.
+- Recibe por variable de entorno (`ENV`) el ID del documento base (`SPREADSHEET_ID`).
+- Dentro del documento, se espera una hoja con las preguntas de cada encuesta.
+- Genera automáticamente una visualización por cada encuesta.
+- Al completar una encuesta, las respuestas se envían directamente al formulario asociado.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Tecnologías
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Google Sheets API
+- Google Drive API
+- JavaScript / HTML / TAILWIND
+- Variables de entorno para configuración
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Instalación
 
-## 🧞 Commands
+1. Clonar este repositorio.
+2. Crear un archivo `.env` basado en el archivo `.env.example`.
+3. Activar las APIs de Google Sheets y Drive.
+4. Compartir el documento de Google Sheets con el servicio autorizado.
+5. Ejecutar el proyecto.
 
-All commands are run from the root of the project, from a terminal:
+## Variables de entorno
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Ver `.env.example` para más detalles.
 
-## 👀 Want to learn more?
+## Ejemplo de estructura de hoja
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| encuesta_id | pregunta          | tipo   |
+|-------------|-------------------|--------|
+| encuesta_1  | ¿Cómo te llamás?  | texto  |
+| encuesta_1  | ¿Edad?            | número |
+| encuesta_2  | ¿Te gustó el curso? | opción múltiple |
+
+## Licencia
+
+MIT
